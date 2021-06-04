@@ -1,0 +1,27 @@
+.header {
+   padding: 20px 0;
+   background-color: rgb(191, 245, 236);
+}
+
+.title h1 {
+   font-style: italic;
+   font-weight: bold;
+   font-size: 72px;
+   font-family: 'Raleway', sans-serif;
+   letter-spacing: 0.5px;
+   text-align: center;
+   color: rgb(97, 63, 219);
+}
+
+.title h1 span {  
+   font-weight: normal;
+   font-size: 42px;
+   letter-spacing: 0.5px;
+   color: rgb(245, 79, 79);
+}
+
+.date h3 {
+   font-style: italic;
+   font-size: 28px;
+   font-weight: normal;
+}
