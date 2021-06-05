@@ -1,0 +1,45 @@
+.articles {
+    background-color: rgb(245, 239, 239);
+}
+
+ul {
+    column-count: 3;
+    list-style-type: none;
+    padding-top: 10px;
+    /* display: flex;
+    flex-wrap: wrap; */
+    width: 100%;
+}
+
+li {
+    display: block;
+    /* width: calc(50% - 30px); */
+    list-style: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+h2, p {
+    margin-bottom: 10px;
+}
+
+p {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.link {
+    display: block;
+    margin: 10px;
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    color: rgb(238, 70, 70);
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}

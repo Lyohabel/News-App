@@ -32,7 +32,7 @@ function App() {
     if (dataStatus === false) getData()   
   }, [dataStatus])
 
-  console.log(news)
+  console.log(news[13])
   
   return (
     <BrowserRouter >
@@ -40,7 +40,7 @@ function App() {
 
       <Switch>
         <Route exact path='/'>
-          <Articles/>
+          <Articles news={news}/>
         </Route>
       </Switch>
     </BrowserRouter>
