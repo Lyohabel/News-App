@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {NavLink} from 'react-router-dom';
 import * as styles from './Articles.module.css'
 
@@ -17,7 +17,7 @@ function Articles({news}) {
                     <span>Read more...</span>
                   </NavLink>                  
               </div>
-              <img src={article.urlToImage} alt="../../Images/white-block"/>
+              <img src={article.urlToImage} alt="#"/>
             </li>
           )
         })    
@@ -35,7 +35,7 @@ function Articles({news}) {
     return (    
         <section className={styles.articles}>
             <div className="container">           
-                <ul>
+                <ul className="news-list">
                     {list}
                 </ul>               
             </div>            

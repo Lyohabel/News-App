@@ -7,18 +7,19 @@ import Search from "./Components/Search/Search"
 import './App.css';
 
 function App() {
+  const[fetchLink, setFetchLink] = useState('https://newsapi.org/v2/top-headlines?sources=cnn,bbc-news,associated-press,bloomberg,the-wall-street-journal&apiKey=c5c59399c298440c8978f43a60953157')
   const[dataStatus, setDataStatus] = useState(false)  
   const[news, setNews] = useState([])
  
 
   const getData = () => {
-    fetch('https://newsapi.org/v2/top-headlines?sources=cnn,bbc-news,associated-press,bloomberg,the-wall-street-journal&apiKey=c5c59399c298440c8978f43a60953157')
+    fetch(fetchLink)
     .then((res) => {
       return res.text()
     })
     .then((data) => {      
       setNews(JSON.parse(data).articles)
-      //setDataStatus(true)
+      setDataStatus(true)
     })    
   }
 
@@ -32,16 +33,15 @@ function App() {
   useEffect(() => {
     if (dataStatus === false) getData()   
   }, [dataStatus])
-
-  console.log(news[13])
   
   return (
     <BrowserRouter >
-      <Header/>
-
       <Switch>
       <Route exact path='/'>
-          <Search/>        
+          <Header/>
+
+          <Search fetchLink={fetchLink} dataStatus={dataStatus} setFetchLink={setFetchLink} setDataStatus={setDataStatus}/>
+
           <Articles news={news}/>
         </Route>
       </Switch>
