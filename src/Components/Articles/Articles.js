@@ -17,7 +17,7 @@ function Articles({news}) {
                     <span>Read more...</span>
                   </NavLink>                  
               </div>
-              <img src={article.urlToImage} alt="No image"/>
+              <img src={article.urlToImage} alt="../../Images/white-block"/>
             </li>
           )
         })    

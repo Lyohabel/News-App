@@ -18,12 +18,14 @@ function Header() {
     return (    
         <header className={styles.header}>
             <div className="container">
-                <div className={styles.title}>
-                    <h1>News <span>App</span></h1>            
-                </div>
-                <div className={styles.date}>
-                    <h3>{now}</h3>            
-                </div>
+                <div className={styles.wrapper}>
+                    <div className={styles.date}>
+                        <h3>{now}</h3>            
+                    </div>
+                    <div className={styles.title}>
+                        <h1>News <span>App</span></h1>            
+                    </div>
+                </div>                
             </div>            
         </header>    
       )

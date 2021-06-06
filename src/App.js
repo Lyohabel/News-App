@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Header from "./Components/Header/Header"
 import Articles from "./Components/Articles/Articles"
+import Search from "./Components/Search/Search"
 
 import './App.css';
 
@@ -39,7 +40,8 @@ function App() {
       <Header/>
 
       <Switch>
-        <Route exact path='/'>
+      <Route exact path='/'>
+          <Search/>        
           <Articles news={news}/>
         </Route>
       </Switch>

@@ -1,27 +1,45 @@
 .header {
    padding: 20px 0;
-   background-color: rgb(191, 245, 236);
+   background-image: url("../../Images/newspaper.png");
+   background-color: rgba(182, 248, 216, 0.3);
 }
 
-.title h1 {
-   font-style: italic;
-   font-weight: bold;
-   font-size: 72px;
-   font-family: 'Raleway', sans-serif;
-   letter-spacing: 0.5px;
-   text-align: center;
-   color: rgb(97, 63, 219);
+.wrapper {
+   display: flex;
+   flex-direction: row;
 }
 
-.title h1 span {  
-   font-weight: normal;
-   font-size: 42px;
-   letter-spacing: 0.5px;
-   color: rgb(245, 79, 79);
+.date {
+   width: 40%;
+   display: flex;
+   align-items: flex-end;   
+}
+
+.title {
+   width: 60%;
+   color: #fff;
 }
 
 .date h3 {
    font-style: italic;
-   font-size: 28px;
-   font-weight: normal;
+   font-size: 24px;
+   font-weight: 700;
+   letter-spacing: 1px;
+   color:rgb(255, 255, 255);
 }
+
+.title h1 {
+   font-style: italic;
+   font-weight: 600;
+   font-size: 48px;   
+   letter-spacing: 1px;
+   text-align: left;  
+}
+
+.title h1 span {  
+   font-weight: 600;
+   font-size: 32px;
+   letter-spacing: 0.5px;
+   
+}
+
