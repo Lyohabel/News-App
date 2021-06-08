@@ -1,8 +1,30 @@
 import React, {useEffect, useState} from 'react'
 import {NavLink} from 'react-router-dom';
-import * as styles from './Articles.module.css'
+import * as styles from './FoundNews.module.css'
 
-function Articles({news}) {
+function FoundNews() {
+
+  const[fetchFoundLink, setFetchFoundLink] = useState('')
+  const[foundDataStatus, setFoundDataStatus] = useState(false)  
+  const[foundNews, setFoundNews] = useState([])
+
+  const href = window.location.href.slice(32);
+  setFetchFoundLink(href)
+
+  const getFoundData = () => {
+    fetch(fetchFoundLink)
+    .then((res) => {
+      return res.text()
+    })
+    .then((data) => {      
+      setFoundNews(JSON.parse(data).articles)
+      setFoundDataStatus(true)
+    })    
+  }
+
+  useEffect(() => {
+    if (foundDataStatus === false) getFoundData()   
+  }, [foundDataStatus])
 
   const addImage = (article) => {
     if (article.urlToImage) {
@@ -18,7 +40,7 @@ function Articles({news}) {
 
   const createList = () => {
     let htmlList = []
-    htmlList = news.map((article, index) => {
+    htmlList = foundNews.map((article, index) => {
       return (
         <li key={index} id={index}>
           <button onClick={() => {mark()}} className={styles.marker}><span>&#10026;</span></button>
@@ -40,10 +62,10 @@ function Articles({news}) {
     const[list, setList] = useState('')
 
     useEffect(() => {
-        if (news && news.length > 0) {
+        if (foundNews && foundNews.length > 0) {
         setList(createList())
         }
-    }, [news])
+    }, [foundNews])
     
     
 
@@ -58,4 +80,4 @@ function Articles({news}) {
       )
 }
 
-export default Articles;
+export default FoundNews;

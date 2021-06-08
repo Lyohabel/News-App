@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Header from "./Components/Header/Header"
+import Nav from "./Components/Nav/Nav"
 import Articles from "./Components/Articles/Articles"
 import Search from "./Components/Search/Search"
+import Footer from "./Components/Footer/Footer"
 
 import './App.css';
 
@@ -33,20 +35,28 @@ function App() {
   useEffect(() => {
     if (dataStatus === false) getData()   
   }, [dataStatus])
+
+  console.log(fetchLink)
   
   return (
     <BrowserRouter >
-      <Switch>
-      <Route exact path='/'>
-          <Header/>
+      <Header/>
 
-          <Search fetchLink={fetchLink} dataStatus={dataStatus} setFetchLink={setFetchLink} setDataStatus={setDataStatus}/>
+      <Nav/>
 
+      <Search fetchLink={fetchLink} dataStatus={dataStatus} setFetchLink={setFetchLink} setDataStatus={setDataStatus}/>
+
+      <Switch>        
+        <Route exact path='/'>
           <Articles news={news}/>
-        </Route>
+        </Route>        
       </Switch>
+
+      <Footer/>
     </BrowserRouter>
   );
 }
 
 export default App;
+
+
