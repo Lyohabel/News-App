@@ -1,6 +1,35 @@
-.header {
+.nav {
    padding: 20px 0;   
-   background-color: rgba(148, 228, 161, 0.76);
+   background-color: rgba(144, 180, 151, 0.76);
+}
+
+.wrapper {
+   padding: 0 20px;
+   display: flex;
+   justify-content: space-between;
+}
+
+.link, .showMenu, .closeMenu {
+   text-decoration: none;
+   color: #000;
+   font-size: 20px;
+   font-weight: 600;
+   letter-spacing: 0.5px;
+   padding: 5px 15px;
+   border-radius: 20px;
+   background-color: rgba(192, 233, 198, 0.76);
+}
+
+.link:hover {
+   background-color: rgba(151, 243, 165, 0.76);
+}
+
+.showMenu, .closeMenu {
+   display: none;
+}
+
+.closeMenu {
+   background-color: rgba(238, 240, 128, 0.76);
 }
 
 

@@ -2,8 +2,12 @@ import React, {useState, useEffect} from 'react'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Header from "./Components/Header/Header"
 import Nav from "./Components/Nav/Nav"
-import Articles from "./Components/Articles/Articles"
 import Search from "./Components/Search/Search"
+import Articles from "./Components/Articles/Articles"
+import ChoosedNews from "./Components/ChoosedNews/ChoosedNews"
+import About from "./Components/About/About"
+import Settings from "./Components/Settings/Settings"
+import Contacts from "./Components/Contacts/Contacts"
 import Footer from "./Components/Footer/Footer"
 
 import './App.css';
@@ -49,7 +53,24 @@ function App() {
       <Switch>        
         <Route exact path='/'>
           <Articles news={news}/>
-        </Route>        
+        </Route>
+
+        <Route path='/choosed-news'>
+          <ChoosedNews/>
+        </Route>
+
+        <Route path='/about'>
+          <About/>
+        </Route>
+
+        <Route path='/settings'>
+          <Settings/>
+        </Route>
+
+        <Route path='/contacts'>
+          <Contacts/>
+        </Route>
+
       </Switch>
 
       <Footer/>
