@@ -1,0 +1,43 @@
+.search {
+   padding: 15px 0;   
+   background-color: rgba(173, 135, 28, 0.3);
+}
+
+.wrapper {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   width: 100%;
+   padding: 0 20px;
+}
+
+.buttonSliderNext,
+.buttonSliderPrev {
+    width: 60px;
+    height: 40px;
+    background-color: rgba(245, 41, 14, 0.5);    
+    border-radius: 20px;     
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    cursor: pointer;
+}
+
+.buttonSliderNext {
+   border: 1px solid rgba(226, 222, 222, 0.5);
+   background-image: url("../../../Images/arrow-left.png");
+   transform: rotate(180deg);   
+}
+
+.buttonSliderPrev {
+   border: 1px solid rgba(226, 222, 222, 0.5);
+   background-image: url("../../../Images/arrow-left.png");
+}
+
+.sliderTitle {
+   display: block;
+   background-color: rgba(241, 245, 197, 0.5);
+   padding: 7px 25px;
+   border-radius: 20px;
+}
+
+

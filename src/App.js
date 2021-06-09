@@ -2,31 +2,44 @@ import React, {useState, useEffect} from 'react'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Header from "./Components/Header/Header"
 import Nav from "./Components/Nav/Nav"
-import Search from "./Components/Search/Search"
-import Articles from "./Components/Articles/Articles"
-import ChoosedNews from "./Components/ChoosedNews/ChoosedNews"
-import About from "./Components/About/About"
-import Settings from "./Components/Settings/Settings"
-import Contacts from "./Components/Contacts/Contacts"
+import Search from "./Components/Sectiions/Search/Search"
+import Slider from "./Components/Sectiions/Slider/Slider"
+import Articles from "./Components/Sectiions/Articles/Articles"
+import ChoosedNews from "./Components/Sectiions/ChoosedNews/ChoosedNews"
+import About from "./Components/Sectiions/About/About"
+import Settings from "./Components/Sectiions/Settings/Settings"
+import Contacts from "./Components/Sectiions/Contacts/Contacts"
 import Footer from "./Components/Footer/Footer"
 
 import './App.css';
 
 function App() {
-  const[fetchLink, setFetchLink] = useState('https://newsapi.org/v2/top-headlines?sources=cnn,bbc-news,associated-press,bloomberg,the-wall-street-journal&apiKey=c5c59399c298440c8978f43a60953157')
-  const[dataStatus, setDataStatus] = useState(false)  
-  const[news, setNews] = useState([])
- 
+  const[topFetchLink, setTopFetchLink] = useState('https://newsapi.org/v2/top-headlines?sources=cnn,bbc-news,associated-press,bloomberg,the-wall-street-journal&apiKey=c5c59399c298440c8978f43a60953157')
+  const[topDataStatus, setTopDataStatus] = useState(false)  
+  const[topNews, setTopNews] = useState([])
 
-  const getData = () => {
-    fetch(fetchLink)
+  const[choosedFetchLink, setChoosedFetchLink] = useState('https://newsapi.org/v2/everything?q=covid&apiKey=c5c59399c298440c8978f43a60953157')
+  const[choosedDataStatus, setChoosedDataStatus] = useState(false)  
+  const[choosedNews, setChoosedNews] = useState([]) 
+
+  const getData = (link, set) => {
+    fetch(link)
     .then((res) => {
       return res.text()
     })
-    .then((data) => {      
-      setNews(JSON.parse(data).articles)
-      setDataStatus(true)
+    .then((data) => {
+      set(data)
     })    
+  }
+
+  const setTop = (data) => {
+    setTopNews(JSON.parse(data).articles)
+    setTopDataStatus(true)
+  }
+  
+  const setChoose = (data) => {
+    setChoosedNews(JSON.parse(data).articles)
+    setChoosedDataStatus(true)
   }
 
 //   const getData = async () => {    
@@ -37,26 +50,28 @@ function App() {
 // }
 
   useEffect(() => {
-    if (dataStatus === false) getData()   
-  }, [dataStatus])
+    if (topDataStatus === false) getData(topFetchLink, setTop)   
+  }, [topDataStatus])
 
-  console.log(fetchLink)
+  useEffect(() => {
+    if (choosedDataStatus === false) getData(choosedFetchLink, setChoose)   
+  }, [choosedDataStatus])
   
   return (
     <BrowserRouter >
       <Header/>
 
-      <Nav/>
-
-      <Search fetchLink={fetchLink} dataStatus={dataStatus} setFetchLink={setFetchLink} setDataStatus={setDataStatus}/>
+      <Nav/>      
 
       <Switch>        
         <Route exact path='/'>
-          <Articles news={news}/>
+          <Slider topFetchLink={topFetchLink} topDataStatus={topDataStatus} setTopFetchLink={setTopFetchLink} setTopDataStatus={setTopDataStatus}/>
+          <Articles topNews={topNews}/>
         </Route>
 
         <Route path='/choosed-news'>
-          <ChoosedNews/>
+          <Search choosedFetchLink={choosedFetchLink} choosedDataStatus={choosedDataStatus} setChoosedFetchLink={setChoosedFetchLink} setChoosedDataStatus={setChoosedDataStatus}/>
+          <ChoosedNews choosedNews={choosedNews}/>
         </Route>
 
         <Route path='/about'>

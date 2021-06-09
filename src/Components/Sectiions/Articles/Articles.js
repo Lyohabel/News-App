@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 //import {NavLink} from 'react-router-dom';
 import * as styles from './Articles.module.css'
 
-function Articles({news}) {
+function Articles({topNews}) {
 
   const addImage = (article) => {
     if (article.urlToImage) {
@@ -18,10 +18,10 @@ function Articles({news}) {
 
   const createList = () => {
     let htmlList = []
-    htmlList = news.map((article, index) => {
+    htmlList = topNews.map((article, index) => {
       return (
         <li key={index} id={index}>
-          <button onClick={() => {mark()}} className={styles.marker}><span>&#10026;</span></button>
+          <button onClick={(event) => {mark(event)}} className={styles.marker}><span>&#10026;</span></button>
           <h2>{article.title}</h2>
           <p>{article.description}</p>
           <div>
@@ -40,10 +40,10 @@ function Articles({news}) {
     const[list, setList] = useState('')
 
     useEffect(() => {
-        if (news && news.length > 0) {
+        if (topNews && topNews.length > 0) {
         setList(createList())
         }
-    }, [news])
+    }, [topNews])
     
     
 
