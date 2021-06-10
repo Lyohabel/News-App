@@ -6,13 +6,13 @@ function Footer() {
    
 
     return (    
-        <header className={styles.header}>
+        <footer className={styles.header}>
             <div className="container">
                 <div className={styles.wrapper}>
                     FOOTER
                 </div>                
             </div>            
-        </header>    
+        </footer>    
       )
 
 }

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-//import {NavLink} from 'react-router-dom';
+import Masonry from 'react-masonry-css'
 import * as styles from './ChoosedNews.module.css'
 
 function ChoosedNews({choosedNews}) {
@@ -20,7 +20,7 @@ function ChoosedNews({choosedNews}) {
     let htmlList = []
     htmlList = choosedNews.map((article, index) => {
       return (
-        <li key={index} id={index}>
+        <div className={styles.newsListItem} key={index} id={index}>
           <button onClick={() => {mark()}} className={styles.marker}><span>&#10026;</span></button>
           <h2>{article.title}</h2>
           <p>{article.description}</p>
@@ -31,7 +31,7 @@ function ChoosedNews({choosedNews}) {
               </a>                  
           </div>
           {addImage(article)}
-        </li>
+        </div>
       )
     })    
     return htmlList.length > 0 ? htmlList : ''    
@@ -50,9 +50,14 @@ function ChoosedNews({choosedNews}) {
     return (    
         <section className={styles.articles}>
             <div className="container">           
-                <ul className="news-list">
-                    {list}
-                </ul>               
+                <div className={styles.newsList}>
+                <Masonry
+                  breakpointCols={3}
+                  className={styles.myMasonryGrid}
+                  columnClassName={styles.myMasonryGridColumn}>
+                  {list}
+                </Masonry>
+                </div>               
             </div>            
         </section>    
       )
