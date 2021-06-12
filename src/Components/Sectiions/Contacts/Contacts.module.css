@@ -1,7 +1,56 @@
-.header {
+.contacts {
    padding: 20px 0;   
-   background-color: rgba(213, 245, 176, 0.76);
+   background-color: rgba(177, 202, 149, 0.76);
 }
 
+.form {
+	font-weight: bold;
+	letter-spacing: 1px;
+	width: 80%;
+	padding: 20px;
+	border-radius: 15px;
+	margin: 0 auto;	
+	background-color: rgba(243, 225, 197, 0.4);
+   border: 3px solid #fff;
+}
 
+fieldset {
+   margin-bottom: 20px;
+   border-radius: 10px;
+   padding: 5px 10px;
+}
 
+.form input, textarea {
+   padding-left: 5px;
+   border-radius: 5px;
+   width: 98%;
+}
+
+.form input::placeholder,
+textarea::placeholder{
+   font-size: 14px;
+}
+
+textarea {  
+   height: 70px;
+}
+
+.butSend, .butClear {
+	margin: 5px;
+	width: 100px;
+	background-color: rgb(230,230,150);
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+.butSend {
+   background-color: rgb(166, 240, 194);
+}
+
+.butSend:hover {
+	background-color: rgb(130,230,150);
+}
+
+.butClear:hover {
+	background-color: rgb(240, 240, 99);
+}

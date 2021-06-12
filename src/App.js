@@ -79,7 +79,7 @@ function App() {
         </Route>
 
         <Route path='/settings'>
-          <Settings/>
+          <Settings setTopDataStatus={setTopDataStatus} setTopFetchLink={setTopFetchLink}/>
         </Route>
 
         <Route path='/contacts'>

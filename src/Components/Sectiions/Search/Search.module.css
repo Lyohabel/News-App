@@ -82,34 +82,3 @@
 .searchLink button:hover {
    background-color: rgb(238, 210, 210);  
 }
-
-.back {
-   cursor: pointer;
-   padding: 5px 15px;
-   margin-right: 20px;
-   border-radius: 20px;  
-   background-color: rgb(197, 243, 228);
-   border: 0;
-   color: crimson;
-   font-weight: 600;
-   font-size: 20px;
-   position: relative;
-   top: -50px;
-   visibility:hidden;
-}
-
-.yes {
-   cursor: pointer;
-   padding: 5px 15px;
-   border-radius: 20px;  
-   background-color: rgb(201, 65, 65);
-   color: #fff;
-   border: 0;   
-   font-weight: 600;
-   font-size: 20px;
-   position: relative;
-   top: -50px;
-   visibility:hidden;
-}
-
-

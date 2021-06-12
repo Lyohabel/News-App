@@ -4,29 +4,7 @@ import * as styles from './Search.module.css'
 function Search({setChoosedFetchLink, setChoosedDataStatus}) {
    const[searchWord, setSearchWord] = useState('')
 
-//    const search = (event) => {       
-//     if (event.key === 'Enter') {      
-//       const searchWord = event.target.value      
-//       setChoosedFetchLink(`https://newsapi.org/v2/everything?q=${searchWord}&apiKey=c5c59399c298440c8978f43a60953157`)
-//       setSearchWord(searchWord)
-//       showLink()
-//         }
-//     }
-    
-//     const searchNews = () => {
-//         const link = document.querySelector('.Search_searchLink__2L6a0')        
-//         const search = document.querySelector('.searchInput')
-//         search.value = ''        
-//         link.style.visibility = 'hidden'        
-//         setChoosedDataStatus(false)
-//     }
-
-//     const showLink = () => {
-//         const link = document.querySelector('.Search_searchLink__2L6a0')
-//         link.style.visibility = 'inherit'        
-//     }    
-
-const search = (event) => {
+   const search = (event) => {
     const searchWord = event.target.value      
       setChoosedFetchLink(`https://newsapi.org/v2/everything?q=${searchWord}&apiKey=c5c59399c298440c8978f43a60953157`)
       setSearchWord(searchWord)       

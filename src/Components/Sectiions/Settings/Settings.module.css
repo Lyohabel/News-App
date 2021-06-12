@@ -1,7 +1,56 @@
-.header {
+.settings {
    padding: 20px 0;   
-   background-color: rgba(231, 198, 241, 0.76);
+   background-color: rgba(214, 240, 248, 0.76);
+}
+
+.typeChoose {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.settings input {
+   padding: 2px 20px;
+    width: 85%;
+    height: 50px;
+    border: 1px solid rgba(226, 222, 222, 0.5);
+    border-radius: 30px;    
+    font-weight: 500;
+    font-size: 24px;    
+    color: #473889;
+    background-image: url("../../../Images/search.png");
+    background-repeat: no-repeat;
+    background-position: 97% 50%;
+}
+
+.settings input::placeholder {
+   font-weight: 600;
+   font-size: 22px;    
+   color: #68a7db;
+}
+
+.note {
+   font-style: italic;
+   font-size: 24px;
+   color: rgb(9, 7, 139);
+   text-align: center;
+   width: 80%;
+}
+
+.keys {
+   display: block;   
+   margin: 10px;
+   padding: 5px 15px;
+   font-style: normal;
+   font-weight: 600;
+   color: #000;
+   background-color: rgb(247, 234, 229);
+   border-radius: 30px;
 }
 
 
+.warning {
+   margin-top: 30px;
+   color: crimson;
+}
 
