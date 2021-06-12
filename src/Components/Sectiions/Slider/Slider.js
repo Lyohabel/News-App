@@ -4,7 +4,7 @@ import * as styles from './Slider.module.css'
 function Slider() {
 
     const sliderNextPrev = (dir) => {
-        const slider = document.querySelector('.news-list')       
+        const slider = document.querySelector('.newsList')       
 
         if (dir === 'next') {
         slider.appendChild(slider.firstElementChild);

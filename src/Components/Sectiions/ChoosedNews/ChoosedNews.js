@@ -12,16 +12,21 @@ function ChoosedNews({choosedNews}) {
     }
   }
 
-   const mark = (event) => {      
-      console.log(event)
-      }
+  const mark = (event) => {
+    const star = event.target
+    if (star.style.color !== 'red') {   
+     star.style.color = 'red'
+    } else {
+     star.style.color = 'rgb(12, 102, 102)'
+    }
+     }
 
   const createList = () => {
     let htmlList = []
     htmlList = choosedNews.map((article, index) => {
       return (
         <div className={styles.newsListItem} key={index} id={index}>
-          <button onClick={() => {mark()}} className={styles.marker}><span>&#10026;</span></button>
+          <button onClick={(event) => {mark(event)}} className={styles.marker}><span>&#10026;</span></button>
           <h2>{article.title}</h2>
           <p>{article.description}</p>
           <div>

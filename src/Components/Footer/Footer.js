@@ -6,10 +6,10 @@ function Footer() {
    
 
     return (    
-        <footer className={styles.header}>
+        <footer className={styles.footer}>
             <div className="container">
                 <div className={styles.wrapper}>
-                    FOOTER
+                    <h3>E-mail: news_app@gmail.com</h3>
                 </div>                
             </div>            
         </footer>    

@@ -2,42 +2,19 @@ import React, {useEffect, useState} from 'react'
 //import {NavLink} from 'react-router-dom';
 import * as styles from './Articles.module.css'
 import './Articles.module.css';
+import PopUp from './PopUp';
 
-function Articles({topNews}) {
+
+function Articles({topNews}) {    
+
+  const[href, setHref] = useState('')
+
+  const[popUpStatus, setPopUpStatus] = useState(false)  
 
   const popUp = (event) => {
-    event.preventDefault();
-	  const href = event.target.src;     
-    
-    const popupWrap = document.createElement('div');
-	  popupWrap.classList.add('popupWrap');
-
-	  const popup = document.createElement('div');
-	  popup.classList.add('popup');
-
-	  const close = document.createElement('button');
-	  close.innerHTML = '&#10006;';
-	  close.classList.add('close');
-    close.style.color = 'red';
-
-	  popupWrap.appendChild(close);
-
-	  const img = document.createElement('img');
-    img.classList.add('popUpImg');
-	  img.src = href;
-
-	  popup.appendChild(img);
-
-	  popupWrap.appendChild(popup);
-
-    const sect = document.querySelector('.Articles_articles__2H5iy')
-    const sectCont = sect.querySelector('.container')
-
-	  sectCont.appendChild(popupWrap);
-
-	  close.addEventListener('click', function() {
-		  popupWrap.remove();
-	  });
+    event.preventDefault();    	        
+    setHref(event.target.src);
+    //setPopUpStatus(true)
   }
 
   const addImage = (article) => {
@@ -50,8 +27,13 @@ function Articles({topNews}) {
     }
   }
 
-   const mark = (event) => {      
-      console.log(event)
+   const mark = (event) => {
+     const star = event.target
+     if (star.style.color !== 'red') {   
+      star.style.color = 'red'
+     } else {
+      star.style.color = 'rgb(12, 102, 102)'
+     }
       }
 
   const createList = () => {
@@ -82,15 +64,19 @@ function Articles({topNews}) {
         setList(createList())
         }
     }, [topNews])
+
     
     
+    console.log(href)
+    //console.log(popUpStatus)
 
     return (    
         <section className={styles.articles}>
             <div className="container">           
                 <ul className="newsList">
                     {list}
-                </ul>               
+                </ul>
+                <PopUp href={href} setHref={setHref} popUpStatus={popUpStatus} setPopUpStatus={setPopUpStatus}/>               
             </div>            
         </section>    
       )

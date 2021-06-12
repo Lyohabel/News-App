@@ -75,7 +75,7 @@ function App() {
         </Route>
 
         <Route path='/about'>
-          <About/>
+          <About topNews={topNews}/>
         </Route>
 
         <Route path='/settings'>
