@@ -49,11 +49,11 @@
    color: crimson; 
 }
 
-h2, p {
+.newsList h2, p {
     margin-bottom: 10px;
 }
 
-p {
+.newsList p {
     font-weight: bold;
     font-style: italic;
 }
@@ -68,7 +68,7 @@ p {
     text-decoration: none;
 }
 
-img {
+.newsList img {
     width: 100%;
     border-radius: 10px;
 }

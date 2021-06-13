@@ -1,20 +1,20 @@
-.header {
+.about {
    padding: 20px 0;   
    background-color: rgba(240, 216, 203, 0.76);  
 }
 
-h2 {
+.about h2 {
    text-align: center;
    font-size: 32px;
 }
 
-h3 {
+.about h3 {
    text-align: center;
    font-size: 24px;
    margin-bottom: 20px; 
 }
 
-p {
+.about p {
    font-style: normal;
    font-weight: 600;
    font-size: 18px;

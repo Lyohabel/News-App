@@ -8,7 +8,7 @@ function About({topNews}) {
    const image3 = (topNews[2].urlToImage || topNews[5].urlToImage || topNews[8].urlToImage)
 
     return (    
-        <header className={styles.header}>
+        <header className={styles.about}>
             <div className="container">
                 <div className={styles.wrapper}>
                     <h2>About News App</h2>
@@ -42,7 +42,6 @@ function About({topNews}) {
             </div>            
         </header>    
       )
-
 }
 
 export default About;

@@ -3,9 +3,6 @@ import {NavLink} from 'react-router-dom';
 import * as styles from './Nav.module.css'
 
 function Nav() {
-
-   
-
     return (    
         <nav className={styles.nav}>
             <div className="container">
@@ -16,15 +13,19 @@ function Nav() {
                     <NavLink className={styles.link} to="/">
                         Top news
                     </NavLink>
+
                     <NavLink className={styles.link} to="/choosed-news">
                         Choosed news
                     </NavLink>
+
                     <NavLink className={styles.link} to="/about">
                         About project
                     </NavLink>
+
                     <NavLink className={styles.link} to="/settings">
                         Settings
                     </NavLink>
+
                     <NavLink className={styles.link} to="/contacts">
                         Contacts
                     </NavLink>
@@ -32,7 +33,6 @@ function Nav() {
             </div>           
         </nav>   
       )
-
 }
 
 export default Nav;

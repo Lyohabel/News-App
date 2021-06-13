@@ -7,10 +7,7 @@ function Header() {
         weekday: 'long',
         month: 'long',
         day: 'numeric',
-        year: 'numeric',
-        // hour: 'numeric',
-        // minute: 'numeric',
-        // second: 'numeric',
+        year: 'numeric'
     }
 
     let now = new Date().toLocaleDateString('en', opt);
@@ -22,6 +19,7 @@ function Header() {
                     <div className={styles.date}>
                         <h3>{now}</h3>            
                     </div>
+                    
                     <div className={styles.title}>
                         <h1>News <span>App</span></h1>            
                     </div>
@@ -29,7 +27,6 @@ function Header() {
             </div>            
         </header>    
       )
-
 }
 
 export default Header;

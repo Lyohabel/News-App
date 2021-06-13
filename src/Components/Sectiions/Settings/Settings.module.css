@@ -9,6 +9,12 @@
    align-items: center;
 }
 
+.settings h2 {
+   font-weight: bold;
+   font-size: 28px;
+   margin-bottom: 20px;   
+}
+
 .settings input {
    padding: 2px 20px;
     width: 85%;
@@ -32,7 +38,8 @@
 .note {
    font-style: italic;
    font-size: 24px;
-   color: rgb(9, 7, 139);
+   font-weight: 600;
+   color: rgb(24, 22, 153);
    text-align: center;
    width: 80%;
 }
@@ -50,7 +57,10 @@
 
 
 .warning {
-   margin-top: 30px;
+   text-align: center;
+   font-weight: bold;
+   font-size: 24px;
+   margin: 30px 0;
    color: crimson;
 }
 

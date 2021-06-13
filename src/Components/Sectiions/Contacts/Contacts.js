@@ -3,8 +3,6 @@ import * as styles from './Contacts.module.css'
 
 function Contacts() {
 
-   
-
     return (    
         <section className={styles.contacts}>
             <div className="container">
@@ -18,10 +16,12 @@ function Contacts() {
                                 Name<br />
                                 <input required minLength="2" type="text" name="surtname" placeholder="Joseph" />
                             </div>
+
                             <div className="field">
                                 Surname<br />
                                 <input required minLength="2" type="text" name="firstname" placeholder="Biden" />
-                            </div>                                
+                            </div> 
+
                             <div className="field">
                             Date of Birth<br />
                                 <input required type="date"/>
@@ -34,10 +34,12 @@ function Contacts() {
                                 Phone<br />
                                 <input required type="tel" name="phone" placeholder="+......" />
                             </div>
+
                             <div className="field">
                                 E-mail<br />
                                 <input type="email" name="email" placeholder="mail@gmail.com" />
-                            </div>                                
+                            </div> 
+
                             <div className="field">
                             City<br />
                                 <input required minLength="2" type="text" name="city" placeholder="New York" />    
@@ -46,6 +48,7 @@ function Contacts() {
 
                         <fieldset className="height">
                             <legend>Message</legend>
+
                             <div className="field">
                                 Your message<br />
                                 <textarea name="message" placeholder="Enter text"></textarea>
@@ -59,7 +62,6 @@ function Contacts() {
             </div>            
         </section>    
       )
-
 }
 
 export default Contacts;

@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-//import {NavLink} from 'react-router-dom';
 import * as styles from './Articles.module.css'
 import './Articles.module.css';
 import PopUp from './PopUp';
@@ -9,18 +8,15 @@ function Articles({topNews}) {
 
   const[href, setHref] = useState('')
 
-  const[popUpStatus, setPopUpStatus] = useState(false)  
-
   const popUp = (event) => {
     event.preventDefault();    	        
-    setHref(event.target.src);
-    //setPopUpStatus(true)
+    setHref(event.target.src);    
   }
 
   const addImage = (article) => {
     if (article.urlToImage) {
       return (
-        <a onClick={(event) => {popUp(event)}} className={styles.popUp} data-image="popup" href={article.urlToImage} target="_blank">
+        <a onClick={(event) => {popUp(event)}} className={styles.popUp} data-image="popup" href={article.urlToImage} target="_blank" rel="noreferrer">
           <img className={styles.image} src={article.urlToImage} alt="#"/>
         </a>
       )
@@ -41,15 +37,22 @@ function Articles({topNews}) {
     htmlList = topNews.map((article, index) => {
       return (
         <li key={index} id={index}>
-          <button onClick={(event) => {mark(event)}} className={styles.marker}><span>&#10026;</span></button>
+          <button onClick={(event) => {mark(event)}} className={styles.marker}>
+            <span>&#10026;</span>
+          </button>
+
           <h2>{article.title}</h2>
+
           <p>{article.description}</p>
+
           <div>
               {article.content}
-              <a target="blank" href={article.url}  className={styles.link}>
+              
+              <a target="blank" rel="noreferrer" href={article.url}  className={styles.link}>
                 <span>Read more...</span>
               </a>                  
           </div>
+
           {addImage(article)}
         </li>
       )
@@ -65,18 +68,14 @@ function Articles({topNews}) {
         }
     }, [topNews])
 
-    
-    
-    console.log(href)
-    //console.log(popUpStatus)
-
     return (    
         <section className={styles.articles}>
             <div className="container">           
                 <ul className="newsList">
                     {list}
                 </ul>
-                <PopUp href={href} setHref={setHref} popUpStatus={popUpStatus} setPopUpStatus={setPopUpStatus}/>               
+
+                <PopUp href={href} setHref={setHref}/>               
             </div>            
         </section>    
       )

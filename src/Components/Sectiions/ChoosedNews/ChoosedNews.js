@@ -26,15 +26,22 @@ function ChoosedNews({choosedNews}) {
     htmlList = choosedNews.map((article, index) => {
       return (
         <div className={styles.newsListItem} key={index} id={index}>
-          <button onClick={(event) => {mark(event)}} className={styles.marker}><span>&#10026;</span></button>
+          <button onClick={(event) => {mark(event)}} className={styles.marker}>
+            <span>&#10026;</span>
+          </button>
+
           <h2>{article.title}</h2>
+
           <p>{article.description}</p>
+
           <div>
               {article.content}
+
               <a target="blank" href={article.url}  className={styles.link}>
                 <span>Read more...</span>
               </a>                  
           </div>
+
           {addImage(article)}
         </div>
       )
@@ -56,12 +63,13 @@ function ChoosedNews({choosedNews}) {
         <section className={styles.articles}>
             <div className="container">           
                 <div className={styles.newsList}>
-                <Masonry
-                  breakpointCols={3}
-                  className={styles.myMasonryGrid}
-                  columnClassName={styles.myMasonryGridColumn}>
-                  {list}
-                </Masonry>
+                  <Masonry
+                    breakpointCols={3}
+                    className={styles.myMasonryGrid}
+                    columnClassName={styles.myMasonryGridColumn}>
+                      
+                    {list}
+                  </Masonry>
                 </div>               
             </div>            
         </section>    

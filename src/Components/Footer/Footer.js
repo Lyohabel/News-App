@@ -3,8 +3,6 @@ import * as styles from './Footer.module.css'
 
 function Footer() {
 
-   
-
     return (    
         <footer className={styles.footer}>
             <div className="container">
@@ -14,7 +12,6 @@ function Footer() {
             </div>            
         </footer>    
       )
-
 }
 
 export default Footer;

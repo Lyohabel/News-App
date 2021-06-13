@@ -14,7 +14,7 @@ function Slider() {
     }
 
     return (    
-        <section className={styles.search}>
+        <section className={styles.slider}>
             <div className="container">
                 <div className={styles.wrapper}>
                     <button onClick={() => { sliderNextPrev('prev') }} className={styles.buttonSliderPrev}></button>
