@@ -4,6 +4,18 @@ import * as styles from './ChoosedNews.module.css'
 
 function ChoosedNews({choosedNews}) {
 
+  const countRead = (event) => {
+    const articleHref = event.target.closest('a').href
+    if (!localStorage.getItem(articleHref)) {
+      localStorage.setItem(articleHref, 1);
+    } else {
+      let count = localStorage.getItem(articleHref);
+      count++;
+      console.log(count);
+      localStorage.setItem(articleHref, count);
+    }    
+  }
+
   const addImage = (article) => {
     if (article.urlToImage) {
       return (
@@ -37,7 +49,7 @@ function ChoosedNews({choosedNews}) {
           <div>
               {article.content}
 
-              <a target="blank" href={article.url}  className={styles.link}>
+              <a onClick={(event) => {countRead(event)}} target="blank" href={article.url}  className={styles.link}>
                 <span>Read more...</span>
               </a>                  
           </div>

@@ -14,6 +14,12 @@
    border: 3px solid #fff;
 }
 
+.contacts h2 {
+   text-align: center;
+   font-size: 28px;
+   margin-bottom: 20px;
+}
+
 .form fieldset {
    margin-bottom: 20px;
    border-radius: 10px;
