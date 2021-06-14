@@ -1,10 +1,13 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useContext} from 'react'
 import * as styles from './Articles.module.css'
 import './Articles.module.css';
 import PopUp from './PopUp';
+import Store from '../../../Context'
 
 
-function Articles({topNews}) {    
+function Articles({}) {
+  
+  const data = useContext(Store)
 
   const[href, setHref] = useState('')
 
@@ -46,7 +49,7 @@ function Articles({topNews}) {
 
   const createList = () => {
     let htmlList = []
-    htmlList = topNews.map((article, index) => {
+    htmlList = data.topNews.map((article, index) => {
       return (
         <li key={index} id={index}>
           <button onClick={(event) => {mark(event)}} className={styles.marker}>
@@ -75,19 +78,21 @@ function Articles({topNews}) {
     const[list, setList] = useState('')
 
     useEffect(() => {
-        if (topNews && topNews.length > 0) {
+        if (data.topNews && data.topNews.length > 0) {
         setList(createList())
         }
-    }, [topNews])
+    }, [data.topNews])
 
     return (    
         <section className={styles.articles}>
-            <div className="container">           
+            <div className="container">
+              <div className={styles.wrapper}>          
                 <ul className="newsList">
                     {list}
                 </ul>
 
-                <PopUp href={href} setHref={setHref}/>               
+                <PopUp href={href} setHref={setHref}/>
+              </div>                               
             </div>            
         </section>    
       )

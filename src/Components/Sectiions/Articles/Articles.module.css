@@ -2,14 +2,18 @@
     background-color: rgb(245, 239, 239);
 }
 
-.articles .container {
+.articles.container {    
+    display: flex;
+    justify-content: center;
+}
+
+.articles.wrapper {
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 .articles ul {
-    /* -moz-column-count: 4;
-    column-count: 4;
-    list-style-type: none; */
     padding: 10px 0;
     display: flex;    
     width: 100%;
@@ -26,9 +30,7 @@
     margin-right: 10px;
     border-radius: 10px;
     background-color: rgba(167, 218, 241, 0.2);
-    border: 5px solid #fff;    
-    /* page-break-inside: avoid;
-    break-inside: avoid; */
+    border: 5px solid #fff;
     height: calc(100% - 30px);
     overflow: hidden;
 }

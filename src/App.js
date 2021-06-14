@@ -10,6 +10,7 @@ import About from "./Components/Sectiions/About/About"
 import Settings from "./Components/Sectiions/Settings/Settings"
 import Contacts from "./Components/Sectiions/Contacts/Contacts"
 import Footer from "./Components/Footer/Footer"
+import Store from './Context'
 
 import './App.css';
 
@@ -42,13 +43,6 @@ function App() {
     setChoosedDataStatus(true)
   }
 
-//   const getData = async () => {    
-//     const response = await fetch('https://newsapi.org/v2/top-headlines?sources=cnn,bbc-news,associated-press,bloomberg,the-wall-street-journal&apiKey=c5c59399c298440c8978f43a60953157')
-//     const resp = await response.json()
-//     const articles = await resp.articles   
-//     setNews(articles)    
-// }
-
   useEffect(() => {
     if (topDataStatus === false) getData(topFetchLink, setTop)   
   }, [topDataStatus])
@@ -59,36 +53,38 @@ function App() {
   
   return (
     <BrowserRouter >
-      <Header/>
+      <Store.Provider value={{topNews}}>
+        <Header/>
 
-      <Nav/>      
+        <Nav/>      
 
-      <Switch>        
-        <Route exact path='/'>
-          <Slider topFetchLink={topFetchLink} topDataStatus={topDataStatus} setTopFetchLink={setTopFetchLink} setTopDataStatus={setTopDataStatus}/>
-          <Articles topNews={topNews}/>
-        </Route>
+        <Switch>        
+          <Route exact path='/'>
+            <Slider topFetchLink={topFetchLink} topDataStatus={topDataStatus} setTopFetchLink={setTopFetchLink} setTopDataStatus={setTopDataStatus}/>
+            <Articles/>
+          </Route>
 
-        <Route path='/choosed-news'>
-          <Search choosedFetchLink={choosedFetchLink} choosedDataStatus={choosedDataStatus} setChoosedFetchLink={setChoosedFetchLink} setChoosedDataStatus={setChoosedDataStatus}/>
-          <ChoosedNews choosedNews={choosedNews}/>
-        </Route>
+          <Route path='/choosed-news'>
+            <Search choosedFetchLink={choosedFetchLink} choosedDataStatus={choosedDataStatus} setChoosedFetchLink={setChoosedFetchLink} setChoosedDataStatus={setChoosedDataStatus}/>
+            <ChoosedNews choosedNews={choosedNews}/>
+          </Route>
 
-        <Route path='/about'>
-          <About topNews={topNews}/>
-        </Route>
+          <Route path='/about'>
+            <About/>
+          </Route>
 
-        <Route path='/settings'>
-          <Settings setTopDataStatus={setTopDataStatus} setTopFetchLink={setTopFetchLink}/>
-        </Route>
+          <Route path='/settings'>
+            <Settings setTopDataStatus={setTopDataStatus} setTopFetchLink={setTopFetchLink}/>
+          </Route>
 
-        <Route path='/contacts'>
-          <Contacts/>
-        </Route>
+          <Route path='/contacts'>
+            <Contacts/>
+          </Route>
 
-      </Switch>
+        </Switch>
 
-      <Footer/>
+        <Footer/>
+      </Store.Provider>
     </BrowserRouter>
   );
 }

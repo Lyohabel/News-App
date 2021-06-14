@@ -5,13 +5,17 @@
 .newsList {
     height: auto;
     padding: 10px 0;
+    display: flex;
+    justify-content: center;
 }
 
 .myMasonryGrid {
+    max-width: calc(100% - 20px);
     display: -webkit-box; /* Not needed if autoprefixing */
     display: -ms-flexbox; /* Not needed if autoprefixing */
     display: flex;
-    margin-left: -10px; /* gutter size offset */
+    /* margin-left: -10px;  */
+    /* gutter size offset */
     width: auto;
   }
   .myMasonryGridColumn {
