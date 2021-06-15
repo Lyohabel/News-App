@@ -1,18 +1,11 @@
-import React, {useState} from 'react'
+import React from 'react'
 import * as styles from './Settings.module.css'
 
-function Settings({setTopDataStatus, setTopFetchLink, country, setCountry}) {
+function Settings({setTopDataStatus, topFetchLink, setTopFetchLink, country, setCountry, publishers, setPublishers, choosedPublishers, setChoosedPublishers, defaultPublishers}) {
 
     const countries = ['ae', 'ar', 'at', 'au', 'be', 'bg', 'br', 'ca', 'ch', 'cn', 'co', 'cu', 'cz', 'de', 'eg', 'fr', 'gb', 'gr', 'hk', 'hu', 'id', 'ie', 'il', 'in', 'it', 'jp', 'kr', 'lt', 'lv', 'ma', 'mx', 'my', 'ng', 'nl', 'no', 'nz', 'ph', 'pl', 'pt', 'ro', 'rs', 'ru', 'sa', 'se', 'sg', 'si', 'sk', 'th', 'tr', 'tw', 'ua', 'us', 've', 'za']
 
     const allPublishers = ['abc-news', 'al-jazeera-english', 'associated-press', 'bbc-news', 'bbc-sport', 'bild', 'bloomberg', 'business-insider', 'cnn', 'crypto-coins-news', 'die-zeit', 'fox-news', 'google-news', 'hacker-news', 'independent', 'le-monde', 'lenta', 'national-geographic', 'news24', 'new-scientist', 'newsweek', 'nhl-news', 'rbc', 'reuters', 'spiegel-online', 'the-jerusalem-post', 'the-wall-street-journal', 'the-washington-post', 'time', 'usa-today']
-
-    const defaultPublishers = 'cnn,bbc-news,associated-press,bloomberg,the-wall-street-journal'
-    
-
-    const[publishers, setPublishers] = useState(localStorage.getItem('publishers') || defaultPublishers)
-
-    const[choosedPublishers, setChoosedPublishers] = useState(localStorage.getItem('choosedPublishers') || 'default publisers')
 
     const buttonDefaultColor = () => {
         const btnSaveSettings = document.querySelector('.Settings_save__3p-2M')
@@ -60,21 +53,10 @@ function Settings({setTopDataStatus, setTopFetchLink, country, setCountry}) {
     } 
 
     const saveSettings= (event) => {
-        if (country !== 'no country') {
-       
-        localStorage.setItem('choosedPublishers', 'No publisers')
-        localStorage.setItem('publishers', '')
-        } else if (publishers === defaultPublishers) {
-            localStorage.setItem('publishers', defaultPublishers)
-            localStorage.setItem('choosedPublishers', 'default publisers')
-            
-            } else if (choosedPublishers !== 'No publisers') {
-                localStorage.setItem('publishers', publishers)
-                localStorage.setItem('choosedPublishers', choosedPublishers)
-                //localStorage.setItem('country', 'no country')
-                }
         
         setTopDataStatus(false)
+
+        localStorage.setItem('topFetchLink', topFetchLink)
 
         event.target.style.color = 'rgb(150, 200, 168)'
     }    

@@ -15,7 +15,7 @@ import Store from './Context'
 import './App.css';
 
 function App() {
-  const[topFetchLink, setTopFetchLink] = useState('https://newsapi.org/v2/top-headlines?sources=cnn,bbc-news,associated-press,bloomberg,the-wall-street-journal&apiKey=c5c59399c298440c8978f43a60953157')
+  const[topFetchLink, setTopFetchLink] = useState(localStorage.getItem('topFetchLink') || 'https://newsapi.org/v2/top-headlines?sources=cnn,bbc-news,associated-press,bloomberg,the-wall-street-journal&apiKey=c5c59399c298440c8978f43a60953157')
   const[topDataStatus, setTopDataStatus] = useState(false)  
   const[topNews, setTopNews] = useState([])
 
@@ -23,7 +23,10 @@ function App() {
   const[choosedDataStatus, setChoosedDataStatus] = useState(false)  
   const[choosedNews, setChoosedNews] = useState([])
 
+  const defaultPublishers = 'cnn,bbc-news,associated-press,bloomberg,the-wall-street-journal'
   const[country, setCountry] = useState('no country')
+  const[publishers, setPublishers] = useState(defaultPublishers)
+  const[choosedPublishers, setChoosedPublishers] = useState('default publisers')
 
   const getData = (link, set) => {
     fetch(link)
@@ -76,7 +79,7 @@ function App() {
           </Route>
 
           <Route path='/settings'>
-            <Settings country={country} setCountry={setCountry} setTopDataStatus={setTopDataStatus} setTopFetchLink={setTopFetchLink}/>
+            <Settings defaultPublishers={defaultPublishers} country={country} setCountry={setCountry} setTopDataStatus={setTopDataStatus} topFetchLink={topFetchLink} setTopFetchLink={setTopFetchLink} publishers={publishers} setPublishers={setPublishers} choosedPublishers={choosedPublishers} setChoosedPublishers={setChoosedPublishers}/>
           </Route>
 
           <Route path='/contacts'>
