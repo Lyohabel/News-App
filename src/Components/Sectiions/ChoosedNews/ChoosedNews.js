@@ -67,7 +67,7 @@ function ChoosedNews({choosedNews}) {
         if (choosedNews && choosedNews.length > 0) {
         setList(createList())
         }
-    }, [choosedNews])
+    }, [choosedNews]) // eslint-disable-line
 
     const[cols, setCols] = useState(3)   
     
@@ -79,7 +79,7 @@ function ChoosedNews({choosedNews}) {
       if (window.innerWidth < 769) {        
         setCols(1)
       }
-  }, [window.innerWidth])
+  }, [window.innerWidth]) // eslint-disable-line
     
 
     return (    

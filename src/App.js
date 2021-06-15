@@ -21,7 +21,9 @@ function App() {
 
   const[choosedFetchLink, setChoosedFetchLink] = useState('https://newsapi.org/v2/everything?q=covid&apiKey=c5c59399c298440c8978f43a60953157')
   const[choosedDataStatus, setChoosedDataStatus] = useState(false)  
-  const[choosedNews, setChoosedNews] = useState([]) 
+  const[choosedNews, setChoosedNews] = useState([])
+
+  const[country, setCountry] = useState('no country')
 
   const getData = (link, set) => {
     fetch(link)
@@ -45,11 +47,11 @@ function App() {
 
   useEffect(() => {
     if (topDataStatus === false) getData(topFetchLink, setTop)   
-  }, [topDataStatus])
+  }, [topDataStatus, topFetchLink])
 
   useEffect(() => {
     if (choosedDataStatus === false) getData(choosedFetchLink, setChoose)   
-  }, [choosedDataStatus])  
+  }, [choosedDataStatus, choosedFetchLink])  
   
   return (
     <BrowserRouter >
@@ -74,7 +76,7 @@ function App() {
           </Route>
 
           <Route path='/settings'>
-            <Settings setTopDataStatus={setTopDataStatus} setTopFetchLink={setTopFetchLink}/>
+            <Settings country={country} setCountry={setCountry} setTopDataStatus={setTopDataStatus} setTopFetchLink={setTopFetchLink}/>
           </Route>
 
           <Route path='/contacts'>

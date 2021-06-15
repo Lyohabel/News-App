@@ -3,7 +3,7 @@ import * as styles from './Footer.module.css'
 
 function Footer() {
 
-    const countVisitors = function() {
+    const countVisitors = function() { // eslint-disable-line
         let count = +localStorage.getItem('countVisitors');
     
         if (!count) {

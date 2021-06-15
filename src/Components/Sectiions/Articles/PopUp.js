@@ -23,13 +23,12 @@ function PopUp({href, setHref}) {
     useEffect(() => {      
         if (href !== '') {
           setpopUpImage(showImage(href))
-        } else {
-            const popUpWrapper = document.querySelector('.PopUp_popUp__2u7fy')
-            if (popUpWrapper) {
-                popUpWrapper.remove()
-            }
-        } 
-    }, [href])
+          console.log('SSS')
+        } else {            
+            setpopUpImage('')            
+        }
+        
+    }, [href]) // eslint-disable-line
 
     return (
         <div>{popUpImage}</div>        

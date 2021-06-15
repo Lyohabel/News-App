@@ -4,13 +4,7 @@ import imgCnn from '../../../Images/cnn.png'
 import imgLenta from '../../../Images/lenta.png'
 import imgBbc from '../../../Images/bbc.png'
 
-function About({}) {
-
-    //const data = useContext(Store)
-
-//    const image1 = (data.topNews[0].urlToImage || data.topNews[3].urlToImage || data.topNews[6].urlToImage)
-//    const image2 = (data.topNews[1].urlToImage || data.topNews[4].urlToImage || data.topNews[7].urlToImage)
-//    const image3 = (data.topNews[2].urlToImage || data.topNews[5].urlToImage || data.topNews[8].urlToImage)
+function About() {    
 
     return (    
         <section className={styles.about}>

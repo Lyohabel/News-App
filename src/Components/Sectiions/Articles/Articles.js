@@ -5,7 +5,7 @@ import PopUp from './PopUp';
 import Store from '../../../Context'
 
 
-function Articles({}) {
+function Articles() {
   
   const data = useContext(Store)
 
@@ -81,7 +81,7 @@ function Articles({}) {
         if (data.topNews && data.topNews.length > 0) {
         setList(createList())
         }
-    }, [data.topNews])
+    }, [data.topNews]) // eslint-disable-line
 
     return (    
         <section className={styles.articles}>
