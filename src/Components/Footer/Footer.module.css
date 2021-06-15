@@ -14,5 +14,9 @@
    text-align: center;
 }
 
-
+@media screen and (max-width: 320px) {
+   .footer h3 {
+      font-size: 20px;
+   }
+}
 

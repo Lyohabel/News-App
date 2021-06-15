@@ -49,7 +49,7 @@ function App() {
 
   useEffect(() => {
     if (choosedDataStatus === false) getData(choosedFetchLink, setChoose)   
-  }, [choosedDataStatus])
+  }, [choosedDataStatus])  
   
   return (
     <BrowserRouter >

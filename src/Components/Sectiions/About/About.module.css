@@ -34,5 +34,12 @@
    float: right;
 }
 
+@media screen and (max-width: 425px) {
+   .imgLeft, .imgRight {
+      max-width: 50%;        
+   }
+
+}
+
 
 

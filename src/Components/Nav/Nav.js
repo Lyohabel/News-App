@@ -3,32 +3,60 @@ import {NavLink} from 'react-router-dom';
 import * as styles from './Nav.module.css'
 
 function Nav() {
+
+    const showMenu = (event) => {
+        const menu = document.querySelector('.Nav_menu__271Ed')        
+        menu.style.display = 'flex'
+        event.target.style.display = 'none'
+    }
+
+    const closeMenu = () => {
+        const menu = document.querySelector('.Nav_menu__271Ed')
+        const showMenu = document.querySelector('.Nav_showMenu__13urL')
+        menu.style.display = 'none'
+        showMenu.style.display = 'block'
+    }
+
     return (    
         <nav className={styles.nav}>
             <div className="container">
                 <div className={styles.wrapper}>
-                    <button className={styles.showMenu}>Menu</button>
-                    <button className={styles.closeMenu}>Close</button>
+                    <button onClick= {(event) => showMenu(event)} className={styles.showMenu}>Menu</button>                    
 
-                    <NavLink className={styles.link} to="/">
-                        Top news
-                    </NavLink>
+                    <ul className={styles.menu}>
+                        <li className={styles.menuItem}>
+                            <button onClick= {() => closeMenu()} className={styles.closeMenu}>Close</button>
+                        </li>
+                        <li className={styles.menuItem}>
+                            <NavLink className={styles.link} to="/">
+                            Top news
+                            </NavLink>
+                        </li>
 
-                    <NavLink className={styles.link} to="/choosed-news">
-                        Choosed news
-                    </NavLink>
+                        <li className={styles.menuItem}>
+                            <NavLink className={styles.link} to="/choosed-news">
+                            Choosed news
+                            </NavLink>
+                        </li>
 
-                    <NavLink className={styles.link} to="/about">
-                        About project
-                    </NavLink>
+                        <li className={styles.menuItem}>
+                            <NavLink className={styles.link} to="/about">
+                            About project
+                            </NavLink>
+                        </li>
 
-                    <NavLink className={styles.link} to="/settings">
-                        Settings
-                    </NavLink>
+                        <li className={styles.menuItem}>
+                            <NavLink className={styles.link} to="/settings">
+                            Settings
+                            </NavLink>
+                        </li>
 
-                    <NavLink className={styles.link} to="/contacts">
-                        Contacts
-                    </NavLink>
+                        <li className={styles.menuItem}>
+                            <NavLink className={styles.link} to="/contacts">
+                            Contacts
+                            </NavLink>
+                        </li>
+                    </ul>
                 </div>
             </div>           
         </nav>   

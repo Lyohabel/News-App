@@ -13,87 +13,72 @@ function Settings({setTopDataStatus, setTopFetchLink}) {
 
     const[publishers, setPublishers] = useState(localStorage.getItem('publishers') || defaultPublishers)
 
-    const[choosedPublishers, setChoosedPublishers] = useState(localStorage.getItem('choosedPublishers') || `default publisers (${defaultPublishers})`)
+    const[choosedPublishers, setChoosedPublishers] = useState(localStorage.getItem('choosedPublishers') || 'default publisers')
 
-    const btnCountryDefaultColor = () => {
-        const btnSaveCountry = document.querySelector('.Settings_saveAndDefault__1SBCm button')
-        btnSaveCountry.style.color = '#000'
-    }
-
-    const btnPublishersDefaultColor = () => {        
-        const btnSavePublishers = document.querySelector('.Settings_saveAndDefault__1SBCm button')
-        btnSavePublishers.style.color = '#000'
-    }
-
-    const buttonsDefaultColor = () => {
-        btnCountryDefaultColor();
-        btnPublishersDefaultColor();
-    }
+    const buttonDefaultColor = () => {
+        const btnSaveSettings = document.querySelector('.Settings_save__3p-2M')
+        btnSaveSettings.style.color = '#000'
+    }    
     
     const chooseCountry = (event) => {
         const country = event.target.innerHTML;
         setCountry(country)
-        //localStorage.setItem('country', country)
-        setPublishers('No publisers')
+        setPublishers('')
         setChoosedPublishers('No publisers')
 
         setTopFetchLink(`https://newsapi.org/v2/top-headlines?country=${country}&apiKey=c5c59399c298440c8978f43a60953157`)
 
-        buttonsDefaultColor()
-        
+        buttonDefaultColor()        
     }
 
-    const saveCountry = (event) => {
+    const choosePublishers = (event) => {
+        if (publishers === defaultPublishers || publishers === '') {
+            const publisher = event.target.innerHTML
+            setPublishers(publisher)
+            setChoosedPublishers(publisher)
+            setTopFetchLink(`https://newsapi.org/v2/top-headlines?sources=${publisher}&apiKey=c5c59399c298440c8978f43a60953157`)
+            } else {
+                const publisher = event.target.innerHTML;
+                const morePublishers = publishers + ',' + publisher;
+                setPublishers(morePublishers)
+                setChoosedPublishers(morePublishers)
+                setTopFetchLink(`https://newsapi.org/v2/top-headlines?sources=${morePublishers}&apiKey=c5c59399c298440c8978f43a60953157`)        
+                }
+        setCountry('no country')
+
+        buttonDefaultColor()
+    }
+
+    const chooseDefault = () => {
+        setPublishers(defaultPublishers)
+        setChoosedPublishers('default publisers')
+
+        setCountry('no country')       
+
+        setTopFetchLink(`https://newsapi.org/v2/top-headlines?sources=${defaultPublishers}&apiKey=c5c59399c298440c8978f43a60953157`)
+        
+        buttonDefaultColor()
+    } 
+
+    const saveSettings= (event) => {
+        if (country !== 'no country') {
         localStorage.setItem('country', country)
         localStorage.setItem('choosedPublishers', 'No publisers')
+        localStorage.setItem('publishers', '')
+        } else if (publishers === defaultPublishers) {
+            localStorage.setItem('publishers', defaultPublishers)
+            localStorage.setItem('choosedPublishers', 'default publisers')
+            localStorage.setItem('country', 'no country')
+            } else if (choosedPublishers !== 'No publisers') {
+                localStorage.setItem('publishers', publishers)
+                localStorage.setItem('choosedPublishers', choosedPublishers)
+                localStorage.setItem('country', 'no country')
+                }
         
         setTopDataStatus(false)
 
         event.target.style.color = 'rgb(150, 200, 168)'
     }    
-
-    const choosePublishers = (event) => {
-        if (publishers !== 'No publisers' & publishers !== defaultPublishers) {
-            const publisher = event.target.innerHTML;
-            const morePublishers = publishers + ',' + publisher;
-            setPublishers(morePublishers)
-            setChoosedPublishers(morePublishers)
-            //localStorage.setItem('publishers', publishers) 
-        } else {
-            const publisher = event.target.innerHTML
-            setPublishers(publisher)
-            setChoosedPublishers(publisher)
-            //localStorage.setItem('publishers', publishers)
-            }
-                    
-        setCountry('no country')
-        //localStorage.setItem('country', 'no country') 
-
-        setTopFetchLink(`https://newsapi.org/v2/top-headlines?sources=${publishers}&apiKey=c5c59399c298440c8978f43a60953157`)            
-       
-        //setTopDataStatus(false)
-    }
-
-    const savePublishers = () => {        
-        localStorage.setItem('choosedPublishers', choosedPublishers)
-        localStorage.setItem('publishers', publishers)
-        localStorage.setItem('country', 'no country')
-
-        setTopDataStatus(false)
-    }
-
-    const chooseDefault = () => {
-        setPublishers(defaultPublishers)
-        setChoosedPublishers(`default publisers (${defaultPublishers})`)
-
-        setCountry('no country')
-        localStorage.setItem('choosedPublishers', `default publisers (${defaultPublishers})`)
-        localStorage.setItem('country', 'no country') 
-
-        setTopFetchLink(`https://newsapi.org/v2/top-headlines?sources=${defaultPublishers}&apiKey=c5c59399c298440c8978f43a60953157`)
-
-        setTopDataStatus(false)
-    } 
 
     const creatCountries = () => {
         let countryList = []
@@ -132,12 +117,7 @@ function Settings({setTopDataStatus, setTopFetchLink}) {
 
                         <ul className={styles.countryList}>
                             {creatCountries()}
-                        </ul>
-
-                        <div className={styles.saveAndDefault}>
-                            <button onClick= {(event) => saveCountry(event)} className={styles.save}>Save country</button>
-                            <button onClick= {() => chooseDefault()} className={styles.chooseDefault}>Clear country<br/>(choose default publishers)</button> 
-                        </div>                                                  
+                        </ul>                                                                 */}
                     </div>
 
                     <h3 className={styles.warning}>Warning! You can choose either COUNTRY or PUBLISHERS!</h3>                    
@@ -153,12 +133,12 @@ function Settings({setTopDataStatus, setTopFetchLink}) {
                         
                         <p className={styles.choosedPublishers}>Choosed: <span className={styles.choosedPublishers}>{choosedPublishers}</span></p>
 
-                        <p className={styles.note}>If you want to delete choosed publishers, press any country designation.</p>
+                        <p className={styles.inf}>DEFAULT SETTINGS:  <span>country</span> - no country,  <span>publishers</span> - cnn, bbc-news, associated-press, bloomberg, the-wall-street-journal.</p>
                     </div>
 
                     <div className={styles.saveAndDefault}>
-                        <button onClick= {(event) => savePublishers(event)} className={styles.save}>Save publishers</button>
-                        <button onClick= {() => chooseDefault()} className={styles.chooseDefault}>Choose default publishers</button> 
+                        <button onClick= {() => chooseDefault()} className={styles.chooseDefault}>Back to default settings</button>
+                        <button onClick= {(event) => saveSettings(event)} className={styles.save}>Save settings</button>                         
                     </div>                    
                 </div>                
             </div>            

@@ -60,3 +60,17 @@ textarea {
 .butClear:hover {
 	background-color: rgb(240, 240, 99);
 }
+
+@media screen and (max-width: 425px) {
+   .form {
+      width: calc(100% - 14px);
+      padding: 20px 5px;
+      border: 2px solid #fff;
+   }
+
+   .form fieldset {
+     padding: 5px;
+   }
+   
+
+}

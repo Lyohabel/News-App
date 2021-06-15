@@ -4,9 +4,20 @@
 }
 
 .wrapper {
-   padding: 0 20px;
+   padding: 0 20px;   
+}
+
+.menu {
    display: flex;
    justify-content: space-between;
+}
+
+.menuItem {
+   display: inline-block;
+}
+
+.menuItem:first-child {
+   display: none;
 }
 
 .link, .showMenu, .closeMenu {
@@ -18,18 +29,46 @@
    padding: 5px 15px;
    border-radius: 20px;
    background-color: rgba(192, 233, 198, 0.76);
+   border: none;
 }
 
 .link:hover {
    background-color: rgba(151, 243, 165, 0.76);
 }
 
-.showMenu, .closeMenu {
+.showMenu {
    display: none;
 }
 
 .closeMenu {
-   background-color: rgba(238, 240, 128, 0.76);
+   background-color: rgba(228, 131, 86, 0.76);
+}
+
+@media screen and (max-width: 1024px) {
+   .menu {
+      display: none;
+      flex-direction: column;
+      justify-content: start;
+      background-color: rgba(128, 122, 122, 0.5);
+      height: 100%;
+      padding: 20px;
+      position: fixed;
+      left: 0;
+      top: 0;
+   }
+
+   .menuItem:not(:first-child) {
+      margin-top: 30px;
+   }
+
+   .menuItem:first-child {
+      display: inline-block;
+   }
+
+   .showMenu {
+      display: block;
+   }
+   
 }
 
 

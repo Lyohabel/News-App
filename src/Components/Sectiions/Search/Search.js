@@ -19,7 +19,7 @@ function Search({setChoosedFetchLink, setChoosedDataStatus}) {
                 <div className={styles.searchArticle}>
                     <h2 className={styles.searchTitle}>News by #search_word</h2>
 
-                    <input className="searchInput" onKeyPress={search} name="search" placeholder="Enter ''oil'' or another #search_word to get news..." />
+                    <input className="searchInput" onKeyPress={search} name="search" placeholder="Enter ''oil'' or another #search_word" />
                 </div>
             </div>            
         </section>    

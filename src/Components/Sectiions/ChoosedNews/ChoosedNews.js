@@ -68,7 +68,18 @@ function ChoosedNews({choosedNews}) {
         setList(createList())
         }
     }, [choosedNews])
+
+    const[cols, setCols] = useState(3)   
     
+    useEffect(() => {
+      if (window.innerWidth < 1153 & window.innerWidth > 768) {       
+        setCols(2)
+      }
+
+      if (window.innerWidth < 769) {        
+        setCols(1)
+      }
+  }, [window.innerWidth])
     
 
     return (    
@@ -76,7 +87,7 @@ function ChoosedNews({choosedNews}) {
             <div className="container">           
                 <div className={styles.newsList}>
                   <Masonry
-                    breakpointCols={3}
+                    breakpointCols={cols}
                     className={styles.myMasonryGrid}
                     columnClassName={styles.myMasonryGridColumn}>
                       

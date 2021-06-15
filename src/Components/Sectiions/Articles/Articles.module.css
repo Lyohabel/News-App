@@ -52,7 +52,7 @@
    color: crimson; 
 }
 
-.articles h2, p {
+, p {
     margin-bottom: 10px;
 }
 
@@ -75,3 +75,20 @@
     width: 100%;
     border-radius: 10px;
 }
+
+@media screen and (max-width: 1152px) {
+    .articles li {
+        min-width: calc(50% - 35px);
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .articles li {
+        min-width: calc(100% - 35px);
+    }
+
+    .articles h2 {
+        font-size: 18px;
+    }
+}
+
